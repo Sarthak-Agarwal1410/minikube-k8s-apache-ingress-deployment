@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sarthak-app
+  namespace: sarthak
+spec:
+  selector:
+    matchLabels:
+      app: sarthak-app
+  template:
+    metadata:
+      labels:
+        app: sarthak-app
+    spec:
+      containers:
+        - name: sarthak-app
+          image: sarthak141001/httpd:latest
+          ports:
+            - containerPort: 80
