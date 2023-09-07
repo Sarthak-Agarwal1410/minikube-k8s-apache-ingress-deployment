@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: sarthak-ingress
+  namespace: sarthak
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: sarthak.me
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: sarthak-app
+                port:
+                  number: 80
